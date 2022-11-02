@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище AnimalDateBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnimalTable">
+          <Key>
+            <PropertyRef Name="IDAnimal" />
+          </Key>
+          <Property Name="IDAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataEntranceAnimal" Type="date" Nullable="false" />
+          <Property Name="ViewAnimal" Type="int" Nullable="false" />
+          <Property Name="NameAnimal" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassportAnimal" Type="bit" Nullable="false" />
+          <Property Name="AgeAnimal" Type="int" Nullable="false" />
+          <Property Name="ServiesAnimal" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VievTable">
+          <Key>
+            <PropertyRef Name="IdViev" />
+          </Key>
+          <Property Name="IdViev" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameView" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AnimalTable_VievTable">
+          <End Role="VievTable" Type="Self.VievTable" Multiplicity="1" />
+          <End Role="AnimalTable" Type="Self.AnimalTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VievTable">
+              <PropertyRef Name="IdViev" />
+            </Principal>
+            <Dependent Role="AnimalTable">
+              <PropertyRef Name="ViewAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище AnimalDateBaseModelContainer">
+          <EntitySet Name="AnimalTable" EntityType="Self.AnimalTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VievTable" EntityType="Self.VievTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AnimalTable_VievTable" Association="Self.FK_AnimalTable_VievTable">
+            <End Role="VievTable" EntitySet="VievTable" />
+            <End Role="AnimalTable" EntitySet="AnimalTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnimalDateBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnimalTable">
+          <Key>
+            <PropertyRef Name="IDAnimal" />
+          </Key>
+          <Property Name="IDAnimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataEntranceAnimal" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ViewAnimal" Type="Int32" Nullable="false" />
+          <Property Name="NameAnimal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportAnimal" Type="Boolean" Nullable="false" />
+          <Property Name="AgeAnimal" Type="Int32" Nullable="false" />
+          <Property Name="ServiesAnimal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="VievTable" Relationship="Self.FK_AnimalTable_VievTable" FromRole="AnimalTable" ToRole="VievTable" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VievTable">
+          <Key>
+            <PropertyRef Name="IdViev" />
+          </Key>
+          <Property Name="IdViev" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameView" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AnimalTable" Relationship="Self.FK_AnimalTable_VievTable" FromRole="VievTable" ToRole="AnimalTable" />
+        </EntityType>
+        <Association Name="FK_AnimalTable_VievTable">
+          <End Role="VievTable" Type="Self.VievTable" Multiplicity="1" />
+          <End Role="AnimalTable" Type="Self.AnimalTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VievTable">
+              <PropertyRef Name="IdViev" />
+            </Principal>
+            <Dependent Role="AnimalTable">
+              <PropertyRef Name="ViewAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimalDateBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnimalTable" EntityType="Self.AnimalTable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="VievTable" EntityType="Self.VievTable" />
+          <AssociationSet Name="FK_AnimalTable_VievTable" Association="Self.FK_AnimalTable_VievTable">
+            <End Role="VievTable" EntitySet="VievTable" />
+            <End Role="AnimalTable" EntitySet="AnimalTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AnimalDateBaseModelContainer" CdmEntityContainer="AnimalDateBaseEntities">
+          <EntitySetMapping Name="AnimalTable">
+            <EntityTypeMapping TypeName="AnimalDateBaseModel.AnimalTable">
+              <MappingFragment StoreEntitySet="AnimalTable">
+                <ScalarProperty Name="IDAnimal" ColumnName="IDAnimal" />
+                <ScalarProperty Name="DataEntranceAnimal" ColumnName="DataEntranceAnimal" />
+                <ScalarProperty Name="ViewAnimal" ColumnName="ViewAnimal" />
+                <ScalarProperty Name="NameAnimal" ColumnName="NameAnimal" />
+                <ScalarProperty Name="PassportAnimal" ColumnName="PassportAnimal" />
+                <ScalarProperty Name="AgeAnimal" ColumnName="AgeAnimal" />
+                <ScalarProperty Name="ServiesAnimal" ColumnName="ServiesAnimal" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AnimalDateBaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VievTable">
+            <EntityTypeMapping TypeName="AnimalDateBaseModel.VievTable">
+              <MappingFragment StoreEntitySet="VievTable">
+                <ScalarProperty Name="IdViev" ColumnName="IdViev" />
+                <ScalarProperty Name="NameView" ColumnName="NameView" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

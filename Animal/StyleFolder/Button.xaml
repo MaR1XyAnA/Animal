@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="BorderBrush" Value="#361B57"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#361B57"/>
+        <Setter Property="Foreground" Value="#E7458C"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="borderone"
+                            CornerRadius="0"
+                            Background="{TemplateBinding Background }"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#1c0e2e"/>
+                            <Setter Property="Foreground" Value="#de1b6f"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#4e277d"/>
+                            <Setter Property="Foreground" Value="#ed72a7"/>
+                            <Setter Property="BorderBrush" Value="#1c0e2e"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,129 @@
+﻿<Window x:Class="Animal.ViewFolder.WindowFolder.StartapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Animal.ViewFolder.WindowFolder"
+        mc:Ignorable="d"
+        Height="420" 
+        Width="650"
+        Background="#293873">
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 -200 0" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="112"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <Border 
+                BorderThickness="1 3 1 1"
+                Style="{StaticResource BackgroundBorder}"
+                Height="15"
+                Background="#263670"/>
+            <Border 
+                Style="{StaticResource BackgroundBorder}"
+                Height="20"
+                Background="#263670"/>
+            <Border 
+                Style="{StaticResource BackgroundBorder}"
+                Height="31"
+                Background="#E7458C"/>
+            <Border 
+                Style="{StaticResource BackgroundBorder}"
+                Height="25"
+                Background="#632D86"/>
+            <Border 
+                Style="{StaticResource BackgroundBorder}"
+                Height="20"
+                Background=" #293873"/>
+            <Border
+                BorderThickness="1 1 1 3"
+                Style="{StaticResource BackgroundBorder}"
+                Height="14"
+                Background=" #293873"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0">
+            <StackPanel Margin="0 0 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="ДАТА ПОСТУПЛЕНИЯ"
+                Margin="0 0 5 0"/>
+                <DatePicker
+                Style="{StaticResource DatePickerStyle}"
+                SelectedDate="{x:Static sys:DateTime.Now}"
+                x:Name="DataStartDP"/>
+            </StackPanel>
+            <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="ВИД ЖИВОТНОГО"
+                Margin="0 0 5 0"/>
+                <ComboBox
+                DisplayMemberPath="NameView"
+                x:Name="ViewAnialCB"
+                Width="200"
+                Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="КЛИЧКА"
+                Margin="0 0 5 0"/>
+                <TextBox
+                x:Name="NameAnimalTB"
+                Width="200"
+                Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="137 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="ПАСПОРТ"
+                Margin="0 0 5 0"/>
+                <CheckBox
+                x:Name="PassportCB"
+                VerticalAlignment="Center"
+                Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
+                Margin="0 0 5 0"/>
+                <TextBox
+                x:Name="AgeTB"
+                Width="200"
+                Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="УСЛОВИЯ СОДЕРЖАНИЯ"
+                Margin="0 0 5 0"/>
+                <TextBox
+                x:Name="ServiesTB"
+                Width="200"
+                Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock 
+                Style="{StaticResource TextBlockStyle}"
+                Text="ДАТА КОНЦА"
+                Margin="0 0 5 0"/>
+                <DatePicker
+                Style="{StaticResource DatePickerStyle}"
+                x:Name="DataEndDP"/>
+            </StackPanel>
+            <Button
+                Height="30"
+                Width="220"
+                Content="ДОБАВИТЬ"
+                Name="NewAnimalButton"
+                Click="NewAnimalButton_Click"
+                Margin="0 20 0 0"/>
+        </StackPanel>
+    </Grid>
+</Window>
