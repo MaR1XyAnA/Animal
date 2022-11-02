@@ -14,7 +14,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="borderone"
-                            CornerRadius="0"
+                            CornerRadius="10"
                             Background="{TemplateBinding Background }"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             BorderBrush="{TemplateBinding BorderBrush}">

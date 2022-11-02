@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8ef2a13401264843bbc8ba91ab21b780" Name="Diagram1">
-        <EntityTypeShape EntityType="AnimalDateBaseModel.AnimalTable" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnimalDateBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnimalDateBaseModel.VievTable" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="AnimalDateBaseModel.FK_AnimalTable_VievTable" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.AnimalTable" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.VievTable" Width="1.5" PointX="0.75" PointY="1.5" />
+        <AssociationConnector Association="AnimalDateBaseModel.FK_AnimalTable_VievTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

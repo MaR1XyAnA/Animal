@@ -9,14 +9,14 @@
             <Border
                 x:Name="Border" 
                 Grid.ColumnSpan="2"
-                CornerRadius="0"
-                Background="#D3A2E7"
+                CornerRadius="10"
+                Background="#632D86"
                 BorderThickness="1" />
             <Border 
                 Grid.Column="0"
                 CornerRadius="15" 
                 Margin="1" 
-                Background="#D3A2E7" 
+                Background="#632D86" 
                 BorderThickness="0" />
             <Path 
                 x:Name="Arrow"
@@ -39,7 +39,7 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="MinWidth" Value="100"/>
         <Setter Property="MinHeight" Value="20"/>
-        <Setter Property="Background" Value="#D3A2E7"/>
+        <Setter Property="Background" Value="#632D86"/>
         <Setter Property="Foreground" Value="#E7458C"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -71,7 +71,7 @@
                             VerticalAlignment="Center" 
                             Margin="10,3,23,3"
                             Focusable="True" 
-                            Background="#D3A2E7"
+                            Background="#632D86"
                             Visibility="Hidden"
                             IsReadOnly="{TemplateBinding IsReadOnly}"/>
                         <Popup 
@@ -86,9 +86,9 @@
                                 MinWidth="{TemplateBinding ActualWidth}"
                                 MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                 <Border 
-                                    CornerRadius="0"
+                                    CornerRadius="10"
                                     x:Name="DropDownBorder"
-                                    Background="#D3A2E7"
+                                    Background="#632D86"
                                     BorderThickness="1"
                                     BorderBrush="#E7458C"/>
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
@@ -139,7 +139,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">
-                            <Setter TargetName="Border" Property="Background" Value="#c178de"/>
+                            <Setter TargetName="Border" Property="Background" Value="#492263"/>
                             <Setter Property="Foreground" Value="#E7458C"/>
                             <Setter Property="MinWidth" Value="0"/>
                             <Setter Property="Width" Value="auto"/>

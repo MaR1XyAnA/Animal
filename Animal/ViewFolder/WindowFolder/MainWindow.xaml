@@ -10,20 +10,20 @@
         Height="450" Width="800">
     <Border 
         CornerRadius="20" 
-        Background="#293873" 
-        BorderBrush="#293873">
+        Background="#c79dd7" 
+        BorderBrush="#c79dd7">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="2">
                 <StackPanel 
                     Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"
-                    Margin="0 60 -160 0" 
+                    Margin="0 60 -220 0" 
                     RenderTransformOrigin="0.5,0.5">
                     <StackPanel.RenderTransform>
                         <TransformGroup>
@@ -35,27 +35,27 @@
                     </StackPanel.RenderTransform>
                     <Border 
                         Style="{StaticResource BackgroundBorder}"
-                        Height="25"
+                        Height="30"
                         Background="#263670"/>
                     <Border 
                         Style="{StaticResource BackgroundBorder}"
-                        Height="40"
+                        Height="45"
                         Background="#263670"/>
                     <Border 
                         Style="{StaticResource BackgroundBorder}"
-                        Height="60"
+                        Height="80"
                         Background="#E7458C"/>
                     <Border 
                         Style="{StaticResource BackgroundBorder}"
-                        Height="40"
+                        Height="55"
                         Background="#632D86"/>
                     <Border 
                         Style="{StaticResource BackgroundBorder}"
-                        Height="30"
+                        Height="35"
                         Background="#293873"/>
                     <Border
                         Style="{StaticResource BackgroundBorder}"
-                        Height="20"
+                        Height="25"
                         Background="#293873"/>
                 </StackPanel>
                 <Frame 
@@ -63,7 +63,7 @@
                     x:Name="MainFrame"
                     Margin="10"/>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="1">
                 <StackPanel 
                     Orientation="Horizontal" 
                     VerticalAlignment="Center" 
@@ -72,16 +72,14 @@
                     <ToggleButton
                         Style="{StaticResource MenuToggleButton}"
                         Margin="0 0 5 0"
-                        Content="ДОБАВИТЬ ЖИВОТРОЕ">
-                        <ToggleButton.Resources>
-                            <Style TargetType="Polygon">
-                                <Setter Property="Points" Value="0,0, 30,0, 190,30, 220,0"/>
-                            </Style>
-                        </ToggleButton.Resources>
-                    </ToggleButton>
+                        x:Name="NewAnimalToggleButton"
+                        Click="NewAnimalToggleButton_Click"
+                        Content="ДОБАВИТЬ ЖИВОТРОЕ"/>
                     <ToggleButton
                         Style="{StaticResource MenuToggleButton}"
                         Margin="5 0 0 0"
+                        x:Name="ListAnimalToggleButton"
+                        Click="ListAnimalToggleButton_Click"
                         Content="СПИСОК ЖИВОТНЫХ"/>
                 </StackPanel>
             </Grid>

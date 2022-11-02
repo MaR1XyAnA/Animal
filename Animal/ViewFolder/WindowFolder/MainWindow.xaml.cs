@@ -21,6 +21,7 @@ namespace Animal.ViewFolder.WindowFolder
         {
             InitializeComponent();
             MainFrame.Navigate(new NewAnimalPage());
+            NewAnimalToggleButton.IsChecked = true;
         }
 
         #region Управление окном
@@ -42,5 +43,19 @@ namespace Animal.ViewFolder.WindowFolder
             WindowState = WindowState.Minimized;
         }
         #endregion
+
+        private void NewAnimalToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewAnimalToggleButton.IsChecked = true;
+            ListAnimalToggleButton.IsChecked = false;
+            MainFrame.Navigate(new NewAnimalPage());
+        }
+
+        private void ListAnimalToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewAnimalToggleButton.IsChecked = false;
+            ListAnimalToggleButton.IsChecked = true;
+            MainFrame.Navigate(new ListAnimalPage());
+        }
     }
 }

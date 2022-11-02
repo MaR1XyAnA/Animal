@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище AnimalDateBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище AnimalDateBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AnimalTable">
           <Key>
             <PropertyRef Name="IDAnimal" />
@@ -56,11 +56,19 @@
             <End Role="AnimalTable" EntitySet="AnimalTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnimalDateBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AnimalDateBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnimalTable" EntityType="AnimalDateBaseModel.AnimalTable" />
+          <EntitySet Name="sysdiagrams" EntityType="AnimalDateBaseModel.sysdiagrams" />
+          <EntitySet Name="VievTable" EntityType="AnimalDateBaseModel.VievTable" />
+          <AssociationSet Name="FK_AnimalTable_VievTable" Association="AnimalDateBaseModel.FK_AnimalTable_VievTable">
+            <End Role="VievTable" EntitySet="VievTable" />
+            <End Role="AnimalTable" EntitySet="AnimalTable" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AnimalTable">
           <Key>
             <PropertyRef Name="IDAnimal" />
@@ -68,18 +76,18 @@
           <Property Name="IDAnimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DataEntranceAnimal" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ViewAnimal" Type="Int32" Nullable="false" />
-          <Property Name="NameAnimal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameAnimal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PassportAnimal" Type="Boolean" Nullable="false" />
           <Property Name="AgeAnimal" Type="Int32" Nullable="false" />
-          <Property Name="ServiesAnimal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiesAnimal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="VievTable" Relationship="Self.FK_AnimalTable_VievTable" FromRole="AnimalTable" ToRole="VievTable" />
+          <NavigationProperty Name="VievTable" Relationship="AnimalDateBaseModel.FK_AnimalTable_VievTable" FromRole="AnimalTable" ToRole="VievTable" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -90,12 +98,12 @@
             <PropertyRef Name="IdViev" />
           </Key>
           <Property Name="IdViev" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameView" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AnimalTable" Relationship="Self.FK_AnimalTable_VievTable" FromRole="VievTable" ToRole="AnimalTable" />
+          <Property Name="NameView" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AnimalTable" Relationship="AnimalDateBaseModel.FK_AnimalTable_VievTable" FromRole="VievTable" ToRole="AnimalTable" />
         </EntityType>
         <Association Name="FK_AnimalTable_VievTable">
-          <End Role="VievTable" Type="Self.VievTable" Multiplicity="1" />
-          <End Role="AnimalTable" Type="Self.AnimalTable" Multiplicity="*" />
+          <End Type="AnimalDateBaseModel.VievTable" Role="VievTable" Multiplicity="1" />
+          <End Type="AnimalDateBaseModel.AnimalTable" Role="AnimalTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VievTable">
               <PropertyRef Name="IdViev" />
@@ -105,15 +113,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AnimalDateBaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AnimalTable" EntityType="Self.AnimalTable" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="VievTable" EntityType="Self.VievTable" />
-          <AssociationSet Name="FK_AnimalTable_VievTable" Association="Self.FK_AnimalTable_VievTable">
-            <End Role="VievTable" EntitySet="VievTable" />
-            <End Role="AnimalTable" EntitySet="AnimalTable" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -123,33 +122,33 @@
           <EntitySetMapping Name="AnimalTable">
             <EntityTypeMapping TypeName="AnimalDateBaseModel.AnimalTable">
               <MappingFragment StoreEntitySet="AnimalTable">
-                <ScalarProperty Name="IDAnimal" ColumnName="IDAnimal" />
-                <ScalarProperty Name="DataEntranceAnimal" ColumnName="DataEntranceAnimal" />
-                <ScalarProperty Name="ViewAnimal" ColumnName="ViewAnimal" />
-                <ScalarProperty Name="NameAnimal" ColumnName="NameAnimal" />
-                <ScalarProperty Name="PassportAnimal" ColumnName="PassportAnimal" />
-                <ScalarProperty Name="AgeAnimal" ColumnName="AgeAnimal" />
-                <ScalarProperty Name="ServiesAnimal" ColumnName="ServiesAnimal" />
                 <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="ServiesAnimal" ColumnName="ServiesAnimal" />
+                <ScalarProperty Name="AgeAnimal" ColumnName="AgeAnimal" />
+                <ScalarProperty Name="PassportAnimal" ColumnName="PassportAnimal" />
+                <ScalarProperty Name="NameAnimal" ColumnName="NameAnimal" />
+                <ScalarProperty Name="ViewAnimal" ColumnName="ViewAnimal" />
+                <ScalarProperty Name="DataEntranceAnimal" ColumnName="DataEntranceAnimal" />
+                <ScalarProperty Name="IDAnimal" ColumnName="IDAnimal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="AnimalDateBaseModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VievTable">
             <EntityTypeMapping TypeName="AnimalDateBaseModel.VievTable">
               <MappingFragment StoreEntitySet="VievTable">
-                <ScalarProperty Name="IdViev" ColumnName="IdViev" />
                 <ScalarProperty Name="NameView" ColumnName="NameView" />
+                <ScalarProperty Name="IdViev" ColumnName="IdViev" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

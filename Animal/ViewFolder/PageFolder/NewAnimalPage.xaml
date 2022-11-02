@@ -8,80 +8,86 @@
       mc:Ignorable="d" 
       Style="{StaticResource StylePage}">
 
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0">
-        <StackPanel Margin="0 0 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ДАТА ПОСТУПЛЕНИЯ"
-                Margin="0 0 5 0"/>
-            <DatePicker
-                Style="{StaticResource DatePickerStyle}"
-                SelectedDate="{x:Static sys:DateTime.Now}"
-                x:Name="DataStartDP"/>
-        </StackPanel>
-        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ВИД ЖИВОТНОГО"
-                Margin="0 0 5 0"/>
-            <ComboBox
-                DisplayMemberPath="NameView"
-                x:Name="ViewAnialCB"
-                Width="450"
-                Margin="5 0 0 0"/>
-        </StackPanel>
-        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0">
+        <StackPanel Margin="0 0 0 5" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
                 Text="КЛИЧКА"
-                Margin="0 0 5 0"/>
+                Margin="15 0 0 0"/>
             <TextBox
                 x:Name="NameAnimalTB"
                 Width="450"
                 Margin="5 0 0 0"/>
         </StackPanel>
-        <StackPanel Margin="137 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ПАСПОРТ"
-                Margin="0 0 5 0"/>
-            <CheckBox
-                x:Name="PassportCB"
-                VerticalAlignment="Center"
-                Margin="5 0 0 0"/>
-        </StackPanel>
-        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
-                Margin="0 0 5 0"/>
-            <TextBox
-                x:Name="AgeTB"
-                Width="450"
-                Margin="5 0 0 0"/>
-        </StackPanel>
-        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+        <StackPanel Margin="0 2 0 2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
                 Text="УСЛОВИЯ СОДЕРЖАНИЯ"
-                Margin="0 0 5 0"/>
+                Margin="15 0 5 0"/>
             <TextBox
                 x:Name="ServiesTB"
                 Width="450"
                 Margin="5 0 0 0"/>
         </StackPanel>
-        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+        <StackPanel Margin="0 2 0 2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
-                Text="ДАТА КОНЦА"
-                Margin="0 0 5 0"/>
-            <DatePicker
-                Style="{StaticResource DatePickerStyle}"
-                x:Name="DataEndDP"/>
+                Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
+                Margin="15 0 5 0"/>
+            <TextBox
+                x:Name="AgeTB"
+                Width="450"
+                Margin="5 0 0 0"/>
+        </StackPanel>
+        <StackPanel Margin="0 2 0 2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBlock 
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ДАТА ПОСТ."
+                    Margin="20 0 0 0"/>
+                <DatePicker
+                    SelectedDate="{x:Static sys:DateTime.Now}"
+                    Margin="0 0 5 0"
+                    x:Name="DataStartDP"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock 
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ДАТА КОНЦА"
+                    Margin="20 0 0 0"/>
+                <DatePicker
+                    BorderBrush="Transparent"
+                    Margin="5 0 0 0"
+                    x:Name="DataEndDP"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="0 2 0 2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <StackPanel>
+                <TextBlock 
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ВИД ЖИВОТНОГО"
+                    Margin="15 0 5 0"/>
+                <ComboBox
+                    DisplayMemberPath="NameView"
+                    x:Name="ViewAnialCB"
+                    Width="260"
+                    Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock 
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ПАСПОРТ"
+                    Margin="15 0 5 0"/>
+                <CheckBox
+                    x:Name="PassportCB"
+                    VerticalAlignment="Center"
+                    Margin="5 0 0 0"/>
+            </StackPanel>
         </StackPanel>
         <Button
+            HorizontalAlignment="Right"
             Height="30"
-            Width="320"
+            Width="450"
             Content="ДОБАВИТЬ"
             Name="NewAnimalButton"
             Click="NewAnimalButton_Click"

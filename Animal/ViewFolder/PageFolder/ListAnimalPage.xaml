@@ -1,0 +1,51 @@
+﻿<Page x:Class="Animal.ViewFolder.PageFolder.ListAnimalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Animal.ViewFolder.PageFolder"
+      mc:Ignorable="d" 
+      Style="{StaticResource StylePage}">
+
+    <DataGrid x:Name="ListAnimalDataGrid">
+        <DataGrid.Resources>
+            <SolidColorBrush 
+                x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                Color="#632D86"/>
+        </DataGrid.Resources>
+        <DataGrid.Columns>
+            <DataGridTextColumn
+                Header="НОМЕР"
+                Binding="{Binding IDAnimal}"
+                Width="80"/>
+            <DataGridTextColumn
+                Header="ПРИОБРИТЁН"
+                Binding="{Binding DataEntranceAnimal, StringFormat='{}{0:dd/MM/yyyy}'}"
+                Width="100"/>
+            <DataGridTextColumn
+                Header="ТИП"
+                Binding="{Binding VievTable.NameView}"
+                Width="auto"/>
+            <DataGridTextColumn
+                Header="КЛИЧКА"
+                Binding="{Binding NameAnimal}"
+                Width="auto"/>
+            <DataGridTextColumn
+                Header="ПАСПОРТ"
+                Binding="{Binding PassportAnimal}"
+                Width="80"/>
+            <DataGridTextColumn
+                Header="ВОЗРАСТ"
+                Binding="{Binding AgeAnimal}"
+                Width="80"/>
+            <DataGridTextColumn
+                Header="СОДЕРЖАНИЕ"
+                Binding="{Binding ServiesAnimal}"
+                Width="120"/>
+            <DataGridTextColumn
+                Header="ОКОНЧАНИЕ"
+                Binding="{Binding DateEnd, StringFormat='{}{0:dd/MM/yyyy}'}"
+                Width="auto"/>
+        </DataGrid.Columns>
+    </DataGrid>
+</Page>
