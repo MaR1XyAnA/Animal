@@ -93,6 +93,12 @@
     <Compile Include="ModelFolder\VievTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewFolder\PageFolder\NewAnimalPage.xaml.cs">
+      <DependentUpon>NewAnimalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFolder\WindowFolder\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewFolder\WindowFolder\StartapWindow.xaml.cs">
       <DependentUpon>StartapWindow.xaml</DependentUpon>
     </Compile>
@@ -152,11 +158,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StyleFolder\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleFolder\Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleFolder\StackPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StyleFolder\TextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleFolder\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleFolder\ToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleFolder\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\PageFolder\NewAnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\WindowFolder\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +200,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ContentFolder\ImageFolder\pngegg.png" />
     <Content Include="ModelFolder\DataBaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>

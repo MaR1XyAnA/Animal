@@ -49,73 +49,73 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0">
             <StackPanel Margin="0 0 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ДАТА ПОСТУПЛЕНИЯ"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ДАТА ПОСТУПЛЕНИЯ"
+                    Margin="0 0 5 0"/>
                 <DatePicker
-                Style="{StaticResource DatePickerStyle}"
-                SelectedDate="{x:Static sys:DateTime.Now}"
-                x:Name="DataStartDP"/>
+                    Style="{StaticResource DatePickerStyle}"
+                    SelectedDate="{x:Static sys:DateTime.Now}"
+                    x:Name="DataStartDP"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ВИД ЖИВОТНОГО"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ВИД ЖИВОТНОГО"
+                    Margin="0 0 5 0"/>
                 <ComboBox
-                DisplayMemberPath="NameView"
-                x:Name="ViewAnialCB"
-                Width="200"
-                Margin="5 0 0 0"/>
+                    DisplayMemberPath="NameView"
+                    x:Name="ViewAnialCB"
+                    Width="200"
+                    Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="КЛИЧКА"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="КЛИЧКА"
+                    Margin="0 0 5 0"/>
                 <TextBox
-                x:Name="NameAnimalTB"
-                Width="200"
-                Margin="5 0 0 0"/>
+                    x:Name="NameAnimalTB"
+                    Width="200"
+                    Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Margin="137 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ПАСПОРТ"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ПАСПОРТ"
+                    Margin="0 0 5 0"/>
                 <CheckBox
-                x:Name="PassportCB"
-                VerticalAlignment="Center"
-                Margin="5 0 0 0"/>
+                    x:Name="PassportCB"
+                    VerticalAlignment="Center"
+                    Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
+                    Margin="0 0 5 0"/>
                 <TextBox
-                x:Name="AgeTB"
-                Width="200"
-                Margin="5 0 0 0"/>
+                    x:Name="AgeTB"
+                    Width="200"
+                    Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="УСЛОВИЯ СОДЕРЖАНИЯ"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="УСЛОВИЯ СОДЕРЖАНИЯ"
+                    Margin="0 0 5 0"/>
                 <TextBox
-                x:Name="ServiesTB"
-                Width="200"
-                Margin="5 0 0 0"/>
+                    x:Name="ServiesTB"
+                    Width="200"
+                    Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Margin="0 8 0 8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ДАТА КОНЦА"
-                Margin="0 0 5 0"/>
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="ДАТА КОНЦА"
+                    Margin="0 0 5 0"/>
                 <DatePicker
-                Style="{StaticResource DatePickerStyle}"
-                x:Name="DataEndDP"/>
+                    Style="{StaticResource DatePickerStyle}"
+                    x:Name="DataEndDP"/>
             </StackPanel>
             <Button
                 Height="30"

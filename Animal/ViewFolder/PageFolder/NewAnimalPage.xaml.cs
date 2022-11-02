@@ -2,7 +2,6 @@
 using Animal.ModelFolder;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +12,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Animal.ViewFolder.WindowFolder
+namespace Animal.ViewFolder.PageFolder
 {
-    public partial class StartapWindow : Window
+    public partial class NewAnimalPage : Page
     {
-        public StartapWindow()
+        public NewAnimalPage()
         {
             InitializeComponent();
             AppConnectClass.DataBase = new AnimalDateBaseEntities();
@@ -46,6 +46,7 @@ namespace Animal.ViewFolder.WindowFolder
                 DataEndDP.Text == "")
             {
                 MessageBox.Show("ПОЛЯ ДОЛЖНЫ БЫТЬ ЗАПОЛНЕНЫ");
+                return;
             }
         }
 
@@ -53,7 +54,7 @@ namespace Animal.ViewFolder.WindowFolder
         {
             GetErrorCheck();
             if (AppConnectClass.DataBase.AnimalTable.Count
-                (data => data.NameAnimal == NameAnimalTB.Text)>0)
+                (data => data.NameAnimal == NameAnimalTB.Text) > 0)
             {
                 MessageBox.Show("ДАННОЕ ЖИВОТНОЕ УЖЕ СУЩЕСТВУЕТ");
                 return;
