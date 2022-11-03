@@ -99,8 +99,17 @@
     <Compile Include="ViewFolder\PageFolder\NewAnimalPage.xaml.cs">
       <DependentUpon>NewAnimalPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewFolder\WindowFolder\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="ViewFolder\PageFolder\NewBookPage.xaml.cs">
+      <DependentUpon>NewBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFolder\WindowFolder\AnimalMainWindow.xaml.cs">
+      <DependentUpon>AnimalMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFolder\WindowFolder\BookMainWindow.xaml.cs">
+      <DependentUpon>BookMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFolder\WindowFolder\StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +207,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewFolder\WindowFolder\MainWindow.xaml">
+    <Page Include="ViewFolder\PageFolder\NewBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\WindowFolder\AnimalMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\WindowFolder\BookMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\WindowFolder\StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

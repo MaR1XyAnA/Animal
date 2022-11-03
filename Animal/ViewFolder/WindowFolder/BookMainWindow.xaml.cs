@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 
 namespace Animal.ViewFolder.WindowFolder
 {
-    public partial class MainWindow : Window
+    public partial class BookMainWindow : Window
     {
-        public MainWindow()
+        public BookMainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new NewAnimalPage());
-            NewAnimalToggleButton.IsChecked = true;
+            //MainFrame.Navigate(new NewAnimalPage());
+            NewBookToggleButton.IsChecked = true;
         }
 
         #region Управление окном
@@ -35,7 +35,9 @@ namespace Animal.ViewFolder.WindowFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
         {
-            Application.Current.Shutdown();
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
         }
 
         private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно
@@ -44,18 +46,18 @@ namespace Animal.ViewFolder.WindowFolder
         }
         #endregion
 
-        private void NewAnimalToggleButton_Click(object sender, RoutedEventArgs e)
+        private void NewBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            NewAnimalToggleButton.IsChecked = true;
-            ListAnimalToggleButton.IsChecked = false;
-            MainFrame.Navigate(new NewAnimalPage());
+            NewBookToggleButton.IsChecked = true;
+            ListBookToggleButton.IsChecked = false;
+            //MainFrame.Navigate(new NewAnimalPage());
         }
 
-        private void ListAnimalToggleButton_Click(object sender, RoutedEventArgs e)
+        private void ListBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            NewAnimalToggleButton.IsChecked = false;
-            ListAnimalToggleButton.IsChecked = true;
-            MainFrame.Navigate(new ListAnimalPage());
+            NewBookToggleButton.IsChecked = false;
+            ListBookToggleButton.IsChecked = true;
+            //MainFrame.Navigate(new ListAnimalPage());
         }
     }
 }

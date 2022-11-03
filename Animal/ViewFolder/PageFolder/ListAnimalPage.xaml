@@ -7,42 +7,68 @@
       mc:Ignorable="d" 
       Style="{StaticResource StylePage}">
 
-    <DataGrid x:Name="ListAnimalDataGrid">
+    <DataGrid
+        FontSize="20"
+        x:Name="ListAnimalDataGrid">
+        <!--<DataGrid.ItemContainerStyle>
+            <Style TargetType="DataGridRow">
+                <Setter Property="Background" Value="#492263"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding PassportAnimal}" Value="True">
+                        <Setter Property="Background" Value="Green"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </DataGrid.ItemContainerStyle>-->
         <DataGrid.Resources>
             <SolidColorBrush 
                 x:Key="{x:Static SystemColors.HighlightBrushKey}" 
-                Color="#632D86"/>
+                Color="#9a58c7"/>
         </DataGrid.Resources>
         <DataGrid.Columns>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="НОМЕР"
                 Binding="{Binding IDAnimal}"
-                Width="80"/>
+                Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="ПРИОБРИТЁН"
                 Binding="{Binding DataEntranceAnimal, StringFormat='{}{0:dd/MM/yyyy}'}"
-                Width="100"/>
+                Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="ТИП"
                 Binding="{Binding VievTable.NameView}"
                 Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="КЛИЧКА"
                 Binding="{Binding NameAnimal}"
                 Width="auto"/>
-            <DataGridTextColumn
+            <DataGridCheckBoxColumn
                 Header="ПАСПОРТ"
                 Binding="{Binding PassportAnimal}"
-                Width="80"/>
+                Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="ВОЗРАСТ"
                 Binding="{Binding AgeAnimal}"
-                Width="80"/>
+                Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="СОДЕРЖАНИЕ"
                 Binding="{Binding ServiesAnimal}"
-                Width="120"/>
+                Width="auto"/>
             <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
                 Header="ОКОНЧАНИЕ"
                 Binding="{Binding DateEnd, StringFormat='{}{0:dd/MM/yyyy}'}"
                 Width="auto"/>
