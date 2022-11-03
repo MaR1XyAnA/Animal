@@ -1,0 +1,71 @@
+﻿<Page x:Class="Animal.ViewFolder.PageFolder.ListBookPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Animal.ViewFolder.PageFolder"
+      mc:Ignorable="d" 
+       Style="{StaticResource StylePage}">
+
+    <DataGrid
+        FontSize="20"
+        x:Name="ListBookDataGrid">
+        <!--<DataGrid.ItemContainerStyle>
+            <Style TargetType="DataGridRow">
+                <Setter Property="Background" Value="#492263"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding PassportAnimal}" Value="True">
+                        <Setter Property="Background" Value="Green"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </DataGrid.ItemContainerStyle>-->
+        <DataGrid.Resources>
+            <SolidColorBrush 
+                x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                Color="#9a58c7"/>
+        </DataGrid.Resources>
+        <DataGrid.Columns>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="АРТИКУЛ"
+                Binding="{Binding ArticlenumberBook}"
+                Width="auto"/>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="ПРИНЕСЛИ"
+                Binding="{Binding DateofreceiptBook, StringFormat='{}{0:dd/MM/yyyy}'}"
+                Width="auto"/>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="ЖАНР"
+                Binding="{Binding GenreTable.NameGenru}"
+                Width="auto"/>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="ФИО АВТОРА"
+                Binding="{Binding SnmauthorBook}"
+                Width="auto"/>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="КНИГА"
+                Binding="{Binding NameBook}"
+                Width="auto"/>
+            <DataGridTextColumn
+                FontSize="18"
+                Foreground="#E7458C"
+                Header="ПУБЛИКАЦИЯ"
+                Binding="{Binding DateofpublicationBook, StringFormat='{}{0:dd/MM/yyyy}'}"
+                Width="auto"/>
+            <DataGridCheckBoxColumn
+                Header="ОБЕЗАТЕЛЬНО"
+                Binding="{Binding NecessarilyBook}"
+                Width="auto"/>
+        </DataGrid.Columns>
+    </DataGrid>
+</Page>

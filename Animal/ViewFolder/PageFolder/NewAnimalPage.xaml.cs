@@ -22,11 +22,11 @@ namespace Animal.ViewFolder.PageFolder
         public NewAnimalPage()
         {
             InitializeComponent();
-            AppConnectClass.DataBase = new AnimalDateBaseEntities();
-            ViewAnialCB.ItemsSource = AppConnectClass.DataBase.VievTable.ToList();
+            AppConnectClass.DataBase = new AnimalDateBaseEntities(); // Подключаем БД к этой странице
+            ViewAnialCB.ItemsSource = AppConnectClass.DataBase.VievTable.ToList(); // В ViewAnialCB выводим все элементы из таблицы VievTable в виде листа
         }
 
-        public void GetClear()
+        public void GetClear() // Метод по очистке текстовых полей
         {
             ViewAnialCB.Text = "";
             NameAnimalTB.Text = "";
@@ -36,34 +36,27 @@ namespace Animal.ViewFolder.PageFolder
             PassportCB.IsChecked = false;
         }
 
-        public void GetErrorCheck()
+        private void NewAnimalButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataStartDP.Text == "" ||
                 ViewAnialCB.Text == "" ||
                 NameAnimalTB.Text == "" ||
                 AgeTB.Text == "" ||
                 ServiesTB.Text == "" ||
-                DataEndDP.Text == "")
+                DataEndDP.Text == "") // Проверка на пустоту текстовых полей
             {
                 MessageBox.Show("ПОЛЯ ДОЛЖНЫ БЫТЬ ЗАПОЛНЕНЫ");
                 return;
             }
-        }
-
-        private void NewAnimalButton_Click(object sender, RoutedEventArgs e)
-        {
-            GetErrorCheck();
-            if (AppConnectClass.DataBase.AnimalTable.Count
-                (data => data.NameAnimal == NameAnimalTB.Text) > 0)
-            {
-                MessageBox.Show("ДАННОЕ ЖИВОТНОЕ УЖЕ СУЩЕСТВУЕТ");
-                return;
-            }
             else
             {
+                // Проверки на наличае в БД книги с таким именем не будет
+                // т.к. в БД есть много книг с одинаковым названием.
+
                 try
                 {
-                    AnimalTable animalTable = new AnimalTable()
+                    string _NameAmimal = NameAnimalTB.Text;
+                    AnimalTable animalTable = new AnimalTable() // Таблица в которое едёт сохранение
                     {
                         DataEntranceAnimal = (DateTime)DataStartDP.SelectedDate,
                         VievTable = ViewAnialCB.SelectedItem as VievTable,
@@ -73,11 +66,10 @@ namespace Animal.ViewFolder.PageFolder
                         ServiesAnimal = ServiesTB.Text,
                         DateEnd = (DateTime)DataEndDP.SelectedDate
                     };
-                    string _NameAmimal = NameAnimalTB.Text;
-                    AppConnectClass.DataBase.AnimalTable.Add(animalTable);
-                    AppConnectClass.DataBase.SaveChanges();
+                    AppConnectClass.DataBase.AnimalTable.Add(animalTable); // Метод добавления
+                    AppConnectClass.DataBase.SaveChanges(); // Метод сохранения
                     MessageBox.Show("ДАННЫЕ ОБ " + _NameAmimal + " ДОБАВЛЕННЫ УСПЕШНО");
-                    GetClear();
+                    GetClear(); // Вызываем метод, который прописали выше
                 }
                 catch
                 {

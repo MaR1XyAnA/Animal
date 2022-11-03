@@ -6,9 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8ef2a13401264843bbc8ba91ab21b780" Name="Diagram1">
         <EntityTypeShape EntityType="AnimalDateBaseModel.AnimalTable" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="AnimalDateBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.BookTable" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.GenreTable" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="AnimalDateBaseModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="AnimalDateBaseModel.VievTable" Width="1.5" PointX="0.75" PointY="1.5" />
         <AssociationConnector Association="AnimalDateBaseModel.FK_AnimalTable_VievTable" />
+        <AssociationConnector Association="AnimalDateBaseModel.FK_BookTable_GenreTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

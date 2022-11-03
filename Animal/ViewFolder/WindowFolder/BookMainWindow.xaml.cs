@@ -20,7 +20,7 @@ namespace Animal.ViewFolder.WindowFolder
         public BookMainWindow()
         {
             InitializeComponent();
-            //MainFrame.Navigate(new NewAnimalPage());
+            MainFrame.Navigate(new NewBookPage());
             NewBookToggleButton.IsChecked = true;
         }
 
@@ -35,14 +35,19 @@ namespace Animal.ViewFolder.WindowFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
         {
-            StartWindow startWindow = new StartWindow();
-            startWindow.Show();
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
         }
         #endregion
 
@@ -50,14 +55,14 @@ namespace Animal.ViewFolder.WindowFolder
         {
             NewBookToggleButton.IsChecked = true;
             ListBookToggleButton.IsChecked = false;
-            //MainFrame.Navigate(new NewAnimalPage());
+            MainFrame.Navigate(new NewBookPage());
         }
 
         private void ListBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
             NewBookToggleButton.IsChecked = false;
             ListBookToggleButton.IsChecked = true;
-            //MainFrame.Navigate(new ListAnimalPage());
+            MainFrame.Navigate(new ListBookPage());
         }
     }
 }

@@ -72,6 +72,9 @@
     <Compile Include="ModelFolder\AnimalTable.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelFolder\BookTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelFolder\DataBaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +90,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelFolder\GenreTable.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelFolder\sysdiagrams.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <Compile Include="ViewFolder\PageFolder\ListAnimalPage.xaml.cs">
       <DependentUpon>ListAnimalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFolder\PageFolder\ListBookPage.xaml.cs">
+      <DependentUpon>ListBookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewFolder\PageFolder\NewAnimalPage.xaml.cs">
       <DependentUpon>NewAnimalPage.xaml</DependentUpon>
@@ -200,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewFolder\PageFolder\ListAnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewFolder\PageFolder\ListBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

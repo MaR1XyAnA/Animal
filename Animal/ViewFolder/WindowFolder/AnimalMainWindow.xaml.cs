@@ -24,14 +24,19 @@ namespace Animal.ViewFolder.WindowFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
         {
-            StartWindow startWindow = new StartWindow();
-            startWindow.Show();
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartWindow startWindow = new StartWindow();
+            startWindow.Show();
+            this.Close();
         }
         #endregion
 

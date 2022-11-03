@@ -18,6 +18,25 @@
           <Property Name="ServiesAnimal" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DateEnd" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="BookTable">
+          <Key>
+            <PropertyRef Name="ArticlenumberBook" />
+          </Key>
+          <Property Name="ArticlenumberBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateofreceiptBook" Type="date" Nullable="false" />
+          <Property Name="GenreBook" Type="int" Nullable="false" />
+          <Property Name="SnmauthorBook" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NameBook" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateofpublicationBook" Type="date" Nullable="false" />
+          <Property Name="NecessarilyBook" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenreTable">
+          <Key>
+            <PropertyRef Name="IdGenre" />
+          </Key>
+          <Property Name="IdGenre" Type="int" Nullable="false" />
+          <Property Name="NameGenru" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -47,13 +66,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BookTable_GenreTable">
+          <End Role="GenreTable" Type="Self.GenreTable" Multiplicity="1" />
+          <End Role="BookTable" Type="Self.BookTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenreTable">
+              <PropertyRef Name="IdGenre" />
+            </Principal>
+            <Dependent Role="BookTable">
+              <PropertyRef Name="GenreBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище AnimalDateBaseModelContainer">
           <EntitySet Name="AnimalTable" EntityType="Self.AnimalTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookTable" EntityType="Self.BookTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenreTable" EntityType="Self.GenreTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VievTable" EntityType="Self.VievTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AnimalTable_VievTable" Association="Self.FK_AnimalTable_VievTable">
             <End Role="VievTable" EntitySet="VievTable" />
             <End Role="AnimalTable" EntitySet="AnimalTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookTable_GenreTable" Association="Self.FK_BookTable_GenreTable">
+            <End Role="GenreTable" EntitySet="GenreTable" />
+            <End Role="BookTable" EntitySet="BookTable" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -62,11 +99,17 @@
       <Schema Namespace="AnimalDateBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AnimalDateBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AnimalTable" EntityType="AnimalDateBaseModel.AnimalTable" />
+          <EntitySet Name="BookTable" EntityType="AnimalDateBaseModel.BookTable" />
+          <EntitySet Name="GenreTable" EntityType="AnimalDateBaseModel.GenreTable" />
           <EntitySet Name="sysdiagrams" EntityType="AnimalDateBaseModel.sysdiagrams" />
           <EntitySet Name="VievTable" EntityType="AnimalDateBaseModel.VievTable" />
           <AssociationSet Name="FK_AnimalTable_VievTable" Association="AnimalDateBaseModel.FK_AnimalTable_VievTable">
             <End Role="VievTable" EntitySet="VievTable" />
             <End Role="AnimalTable" EntitySet="AnimalTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookTable_GenreTable" Association="AnimalDateBaseModel.FK_BookTable_GenreTable">
+            <End Role="GenreTable" EntitySet="GenreTable" />
+            <End Role="BookTable" EntitySet="BookTable" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AnimalTable">
@@ -82,6 +125,27 @@
           <Property Name="ServiesAnimal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="VievTable" Relationship="AnimalDateBaseModel.FK_AnimalTable_VievTable" FromRole="AnimalTable" ToRole="VievTable" />
+        </EntityType>
+        <EntityType Name="BookTable">
+          <Key>
+            <PropertyRef Name="ArticlenumberBook" />
+          </Key>
+          <Property Name="ArticlenumberBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateofreceiptBook" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GenreBook" Type="Int32" Nullable="false" />
+          <Property Name="SnmauthorBook" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateofpublicationBook" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NecessarilyBook" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="GenreTable" Relationship="AnimalDateBaseModel.FK_BookTable_GenreTable" FromRole="BookTable" ToRole="GenreTable" />
+        </EntityType>
+        <EntityType Name="GenreTable">
+          <Key>
+            <PropertyRef Name="IdGenre" />
+          </Key>
+          <Property Name="IdGenre" Type="Int32" Nullable="false" />
+          <Property Name="NameGenru" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BookTable" Relationship="AnimalDateBaseModel.FK_BookTable_GenreTable" FromRole="GenreTable" ToRole="BookTable" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -113,6 +177,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BookTable_GenreTable">
+          <End Type="AnimalDateBaseModel.GenreTable" Role="GenreTable" Multiplicity="1" />
+          <End Type="AnimalDateBaseModel.BookTable" Role="BookTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenreTable">
+              <PropertyRef Name="IdGenre" />
+            </Principal>
+            <Dependent Role="BookTable">
+              <PropertyRef Name="GenreBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -130,6 +206,27 @@
                 <ScalarProperty Name="ViewAnimal" ColumnName="ViewAnimal" />
                 <ScalarProperty Name="DataEntranceAnimal" ColumnName="DataEntranceAnimal" />
                 <ScalarProperty Name="IDAnimal" ColumnName="IDAnimal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookTable">
+            <EntityTypeMapping TypeName="AnimalDateBaseModel.BookTable">
+              <MappingFragment StoreEntitySet="BookTable">
+                <ScalarProperty Name="NecessarilyBook" ColumnName="NecessarilyBook" />
+                <ScalarProperty Name="DateofpublicationBook" ColumnName="DateofpublicationBook" />
+                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+                <ScalarProperty Name="SnmauthorBook" ColumnName="SnmauthorBook" />
+                <ScalarProperty Name="GenreBook" ColumnName="GenreBook" />
+                <ScalarProperty Name="DateofreceiptBook" ColumnName="DateofreceiptBook" />
+                <ScalarProperty Name="ArticlenumberBook" ColumnName="ArticlenumberBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenreTable">
+            <EntityTypeMapping TypeName="AnimalDateBaseModel.GenreTable">
+              <MappingFragment StoreEntitySet="GenreTable">
+                <ScalarProperty Name="NameGenru" ColumnName="NameGenru" />
+                <ScalarProperty Name="IdGenre" ColumnName="IdGenre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

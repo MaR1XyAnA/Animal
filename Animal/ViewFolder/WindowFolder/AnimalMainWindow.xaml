@@ -100,6 +100,11 @@
                 </StackPanel>
                 <StackPanel Style="{StaticResource StackPanelControl}">
                     <Button
+                        x:Name="BackButton"
+                        Click="BackButton_Click"
+                        Content="⇤"
+                        Style="{StaticResource ButtonWindowControl}"/>
+                    <Button
                         x:Name="RollUpButton"
                         Click="RollUpButton_Click"
                         Content="—"

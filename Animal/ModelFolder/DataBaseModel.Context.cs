@@ -26,6 +26,8 @@ namespace Animal.ModelFolder
         }
     
         public virtual DbSet<AnimalTable> AnimalTable { get; set; }
+        public virtual DbSet<BookTable> BookTable { get; set; }
+        public virtual DbSet<GenreTable> GenreTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<VievTable> VievTable { get; set; }
     }

@@ -13,30 +13,20 @@
         <StackPanel Margin="0 0 0 5" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
-                Text="ИМЯ АВТОРА"
+                Text="ФИО АВТОРА *"
                 Margin="15 0 0 0"/>
             <TextBox
-                x:Name="NameAnimalTB"
+                x:Name="SNMAuthorsTextBox"
                 Width="450"
                 Margin="5 0 0 0"/>
         </StackPanel>
         <StackPanel Margin="0 2 0 2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
-                Text="НАЗВАНИЕ КНИГИ"
+                Text="НАЗВАНИЕ КНИГИ *"
                 Margin="15 0 5 0"/>
             <TextBox
-                x:Name="ServiesTB"
-                Width="450"
-                Margin="5 0 0 0"/>
-        </StackPanel>
-        <StackPanel Margin="0 2 0 2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <TextBlock 
-                Style="{StaticResource TextBlockStyle}"
-                Text="ВОЗРАСТ (ПОЛ.ЛЕТ)"
-                Margin="15 0 5 0"/>
-            <TextBox
-                x:Name="AgeTB"
+                x:Name="NameBoobTextBox"
                 Width="450"
                 Margin="5 0 0 0"/>
         </StackPanel>
@@ -44,28 +34,28 @@
             <StackPanel>
                 <TextBlock 
                     Style="{StaticResource TextBlockStyle}"
-                    Text="ДАТА ИЗДАНИЯ"
+                    Text="ДАТА ИЗДАНИЯ *"
                     Margin="20 0 0 0"/>
                 <DatePicker
                     BorderBrush="Transparent"
                     Margin="5 0 0 0"
-                    x:Name="DataEndDP"/>
+                    x:Name="DatePublicationBookDatePicker"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="0 2 0 2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}"
-                Text="ЖАНР ПРОИЗВЕДЕНИЯ"
+                Text="ЖАНР ПРОИЗВЕДЕНИЯ *"
                 Margin="15 0 5 0"/>
             <ComboBox
-                DisplayMemberPath="NameView"
-                x:Name="ViewAnialCB"
+                DisplayMemberPath="NameGenru"
+                x:Name="GenreBookComboBox"
                 Width="260"
                 Margin="5 0 0 0"/>
         </StackPanel>
         <StackPanel Margin="0 2 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
             <CheckBox
-                x:Name="PassportCB"
+                x:Name="NecessarilyBookCheckBox"
                 VerticalAlignment="Center"
                 Margin="15 0 0 0"/>
             <TextBlock 
@@ -78,8 +68,8 @@
             Height="30"
             Width="450"
             Content="ДОБАВИТЬ"
-            Name="NewAnimalButton"
-            Click="NewAnimalButton_Click"
-            Margin="0 30 0 0"/>
+            Name="NewBookButton"
+            Click="NewBookButton_Click"
+            Margin="0 50 0 0"/>
     </StackPanel>
 </Page>
